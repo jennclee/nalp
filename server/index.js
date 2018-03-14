@@ -8,7 +8,7 @@ const nalp = require('../database')
 
 const app = express()
 
-app.use(express.static(__dirname + '/../dist'));
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json())
 app.use(cors())
 
