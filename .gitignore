@@ -59,4 +59,4 @@ typings/
 
 # misc
 config.js
-dist/bundle.js
+client/dist/bundle.js

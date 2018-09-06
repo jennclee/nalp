@@ -1,19 +1,23 @@
 const path = require('path')
 
 const config = {
-  entry: './src/app.js',
+  entry: './client/src/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'client/dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
-      { test: /\.js$/,
+      {
+        test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  }
+        exclude: /node_modules/,
+        options: {
+          presets: ['react'],
+        },
+      },
+    ],
+  },
 }
 
 module.exports = config
