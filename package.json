@@ -1,5 +1,5 @@
 {
-  "name": "hrsf83-mvp",
+  "name": "nalp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,22 +11,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jennclee/hrsf83-mvp.git"
+    "url": "git+https://github.com/jennclee/nalp.git"
   },
   "author": "Jennifer Lee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jennclee/hrsf83-mvp/issues"
+    "url": "https://github.com/jennclee/nalp/issues"
   },
-  "homepage": "https://github.com/jennclee/hrsf83-mvp#readme",
+  "homepage": "https://github.com/jennclee/nalp#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "ip": "^1.1.5",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
@@ -39,6 +42,8 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
     "nodemon": "^1.12.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "request": "^2.83.0",
     "sequelize": "^4.22.6"
   }
