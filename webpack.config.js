@@ -1,9 +1,12 @@
 const path = require('path')
 
-const config = {
+const sourcePath = path.join(__dirname, 'client/src')
+const outputPath = path.join(__dirname, 'client/dist')
+
+module.exports.config = {
   entry: './client/src/app.js',
   output: {
-    path: path.resolve(__dirname, 'client/dist'),
+    path: outputPath,
     filename: 'bundle.js',
   },
   module: {
@@ -18,6 +21,11 @@ const config = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js'],
+    modules: [
+      path.resolve(__dirname, 'node_modules'),
+      sourcePath,
+    ],
+  },
 }
-
-module.exports = config
