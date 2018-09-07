@@ -1,71 +1,81 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Filters from './components/Filters.js'
-import Location from './components/Location.js'
-import RestaurantList from './components/RestaurantList.js'
+// import Filters from './components/Filters'
+import Location from './components/Location'
+import RestaurantList from './components/RestaurantList'
+
 const $ = require('jquery')
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
-  	super(props)
+    super(props)
     this.state = {
-      restaurants: []
+      restaurants: [],
+      location: '',
+      showCategory: false,
     }
-  	this.locationSearch = this.locationSearch.bind(this)
-    this.categorySearch = this.categorySearch.bind(this)
   }
 
-  locationSearch(location) {
-  	console.log('location entered: ', location)
-  	$.ajax({
-  		method: 'POST',
-  		url: '/loc',
-  		data: JSON.stringify({location: location}),
-  		contentType: 'application/json',
-  		success: (data) => {
-  			console.log('successfully queried for location')
-  			console.log('ajax POST success res: ', data)
-  		},
-  		error: (err) => {
-  			console.log('failed to query for location')
-  		}
-  	})
+  setLocation = (location) => {
+    this.setState({ location })
   }
 
-  categorySearch(categories) {
+  locationSearch = () => {
+    const { location, showCategory } = this.state
+    this.setState({ showCategory: !showCategory })
+    console.log('location entered: ', location)
+    $.ajax({
+      method: 'POST',
+      url: '/loc',
+      data: JSON.stringify({ location }),
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('successfully queried for location')
+        console.log('ajax POST success res: ', data)
+      },
+      error: (err) => {
+        console.log('failed to query for location: ', err)
+      },
+    })
+  }
+
+  categorySearch = (categories) => {
     $.ajax({
       method: 'GET',
       url: '/loc',
-      data: {categories: categories.join(',')},
+      data: { categories: categories.join(',') },
       contentType: 'application/json',
       success: (data) => {
         console.log('successfully queried categories')
         console.log('ajax GET success res: ', data)
         this.setState({
-          restaurants: data
+          restaurants: data,
         })
       },
       error: (err) => {
-        console.log('failed to query for categories')
-      }
+        console.log('failed to query for categories: ', err)
+      },
     })
   }
 
   render() {
-    const divStyle = {
-      margin: '5px'
-    }
+    const { restaurants, showCategory } = this.state
     return (
-      <div style={divStyle}>
+      <div>
         <h1>Nelp</h1>
-        <br/>
-        <Location locSearch={this.locationSearch} catSearch={this.categorySearch}/>
-        <br/>
-        <br/>
-        <br/>
-        <RestaurantList restList={this.state.restaurants}/>
-        <br/>
-        <br/>
+        <br />
+        <Location
+          setLocation={this.setLocation}
+          locationSearch={this.locationSearch}
+          showCategory={showCategory}
+          categorySearch={this.categorySearch}
+        />
+        <br />
+        <br />
+        <br />
+        <RestaurantList restList={restaurants} />
+        <br />
+        <br />
       </div>
     )
   }

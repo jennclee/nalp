@@ -1,44 +1,36 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import CategorySearch from './CategorySearch.js'
+import PropTypes from 'prop-types'
+import CategorySearch from './CategorySearch'
 
-class Location extends React.Component {
-  constructor(props) {
-  	super(props)
-  	this.state = {
-      locValue: '',
-      show: false
-  	}
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+const Location = ({
+  setLocation, locationSearch, showCategory, categorySearch,
+}) => {
+  const handleChange = (event) => {
+    setLocation(event.target.value)
   }
 
-  handleChange(event) {
-    this.setState({
-      locValue: event.target.value
-    })
-  }
-
-  handleSubmit(event) {
-    this.props.locSearch(this.state.locValue)
-    this.setState({
-      show: true
-    })
+  const handleSubmit = (event) => {
+    locationSearch()
     event.preventDefault()
   }
 
-  render() {
-  	return (
-  		<div>
-        <h5>Location:</h5>
-  			<input id="location" type="text" onChange={this.handleChange}/>
-  			<input type="submit" onClick={this.handleSubmit} value="Enter"/>
-        <br/>
-        <br/>
-        { this.state.show ? <CategorySearch catSearch={this.props.catSearch}/> : null }
-  		</div>
-  	)
-  }
+  return (
+    <div>
+      <h5>Location:</h5>
+      <input id="location" type="text" onChange={handleChange} />
+      <input type="submit" onClick={handleSubmit} value="Enter" />
+      <br />
+      <br />
+      { showCategory ? <CategorySearch categorySearch={categorySearch} /> : null }
+    </div>
+  )
 }
 
 export default Location
+
+Location.propTypes = {
+  setLocation: PropTypes.func.isRequired,
+  locationSearch: PropTypes.func.isRequired,
+  showCategory: PropTypes.bool.isRequired,
+  categorySearch: PropTypes.func.isRequired,
+}
