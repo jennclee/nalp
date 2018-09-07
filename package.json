@@ -34,6 +34,7 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "babel-eslint": "^9.0.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
@@ -42,9 +43,11 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
     "nodemon": "^1.12.1",
+    "prop-types": "^15.6.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "request": "^2.83.0",
-    "sequelize": "^4.22.6"
+    "sequelize": "^4.22.6",
+    "styled-components": "^3.4.5"
   }
 }
