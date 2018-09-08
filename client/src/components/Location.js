@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { SubmitButton } from '../styled/Buttons'
 
 const Location = ({
   setLocation, locationSearch,
@@ -17,7 +18,7 @@ const Location = ({
     <div>
       <h5>Location:</h5>
       <input id="location" type="text" onChange={handleChange} />
-      <input type="submit" onClick={handleSubmit} value="Enter" />
+      <SubmitButton type="submit" onClick={handleSubmit}>Enter</SubmitButton>
       <br />
     </div>
   )

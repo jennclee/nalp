@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Filters from './Filters'
+import { Button, SubmitButton } from '../styled/Buttons'
 
 const CategorySearch = ({
   categorySearch, updateCategory, addCategory, categories,
@@ -24,14 +25,14 @@ const CategorySearch = ({
       <h5>Category:</h5>
       <form>
         <input id="catSearch" type="text" onChange={handleChange} />
-        <button type="submit" onClick={handleSubmit}>Add Category</button>
+        <Button type="submit" onClick={handleSubmit}>Add Category</Button>
       </form>
       <br />
       <div>
         <Filters categories={categories} />
       </div>
       <br />
-      <button type="submit" onClick={applyCategories}>Apply Category Filters</button>
+      <SubmitButton type="submit" onClick={applyCategories}>Apply Category Filters</SubmitButton>
       <br />
     </div>
   )

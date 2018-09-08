@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import Location from './components/Location'
 import RestaurantList from './components/RestaurantList'
 import CategorySearch from './components/CategorySearch'
+import { Header } from './styled/Header'
+import { Main } from './styled/Containers'
 
 const $ = require('jquery')
 
@@ -77,27 +79,26 @@ class App extends Component {
     const { restaurants, showCategory, categories } = this.state
     return (
       <div>
-        <h1>Nelp</h1>
-        <br />
-        <Location
-          setLocation={this.setLocation}
-          locationSearch={this.locationSearch}
-        />
-        <br />
-        { showCategory
-          ? (
-            <CategorySearch
-              updateCategory={this.updateCategory}
-              addCategory={this.addCategory}
-              categorySearch={this.categorySearch}
-              categories={categories}
-            />)
-          : null }
-        <br />
-        <br />
-        <RestaurantList restaurants={restaurants} />
-        <br />
-        <br />
+        <Header>Nalp</Header>
+        <Main>
+          <Location
+            setLocation={this.setLocation}
+            locationSearch={this.locationSearch}
+          />
+          <br />
+          { showCategory
+            ? (
+              <CategorySearch
+                updateCategory={this.updateCategory}
+                addCategory={this.addCategory}
+                categorySearch={this.categorySearch}
+                categories={categories}
+              />)
+            : null }
+          <br />
+          <br />
+          <RestaurantList restaurants={restaurants} />
+        </Main>
       </div>
     )
   }
