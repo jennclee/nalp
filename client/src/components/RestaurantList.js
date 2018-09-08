@@ -1,11 +1,21 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import RestaurantListItem from './RestaurantListItem.js'
+import PropTypes from 'prop-types'
+import RestaurantListItem from './RestaurantListItem'
 
-const RestaurantList = (props) => (
+const RestaurantList = ({ restaurants }) => (
   <div>
-    {props.restList.map( (restaurant, index) => <RestaurantListItem rest={restaurant} key={index}/> )}
+    {restaurants.map(restaurant => (
+      <RestaurantListItem restaurant={restaurant} key={restaurant.name} />
+    ))}
   </div>
 )
 
-export default RestaurantList;
+export default RestaurantList
+
+RestaurantList.propTypes = {
+  restaurants: PropTypes.instanceOf(Array),
+}
+
+RestaurantList.defaultProps = {
+  restaurants: [],
+}

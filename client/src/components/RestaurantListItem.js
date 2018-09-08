@@ -1,32 +1,40 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
-class RestaurantListItem extends React.Component {
-  constructor(props) {
-  	super(props)
+const RestaurantListItem = ({ restaurant }) => {
+  const divStyle = {
+    border: '1px solid gray',
   }
 
-  render() {
-    const divStyle = {
-  	  border: '1px solid gray'
-    }
-    return (
-  	  <div>
-		<div className="container row" style={divStyle}>
-	      <div className="col-sm-3">
-	        <img src={this.props.rest.image_url} width="100px"/>
-	      </div>
-	      <div className="col-sm">
-	        <h4><a href={this.props.rest.yelp_link} target="_blank">{this.props.rest.name}</a></h4>
-	        <p>{this.props.rest.address}</p>
-	        <p>Rating: {this.props.rest.rating} / 5</p>
-	        <p>Price: {this.props.rest.price}</p>
-	      </div>
-	    </div>
-	    <br/>
-	  </div>
-	)
-  }
+  return (
+    <div className="container row" style={divStyle}>
+      <div className="col-sm-3">
+        <img src={restaurant.image_url} width="100px" alt="food" />
+      </div>
+      <div className="col-sm">
+        <h4><a href={restaurant.yelp_link} target="ww1">{restaurant.name}</a></h4>
+        <p>{restaurant.address}</p>
+        <p>
+          Rating:&nbsp;
+          {restaurant.rating}
+          &nbsp;/ 5
+        </p>
+        <p>
+          Price:&nbsp;
+          {restaurant.price}
+        </p>
+      </div>
+      <br />
+    </div>
+  )
 }
 
-export default RestaurantListItem;
+export default RestaurantListItem
+
+RestaurantListItem.propTypes = {
+  restaurant: PropTypes.instanceOf(Object),
+}
+
+RestaurantListItem.defaultProps = {
+  restaurant: {},
+}

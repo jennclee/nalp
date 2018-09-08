@@ -95,7 +95,7 @@ class App extends Component {
           : null }
         <br />
         <br />
-        <RestaurantList restList={restaurants} />
+        <RestaurantList restaurants={restaurants} />
         <br />
         <br />
       </div>
