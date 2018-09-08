@@ -1,30 +1,29 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
-class FilterItem extends React.Component {
-  constructor(props) {
-  	super(props)
+const FilterItem = ({ category }) => {
+  const filterStyle = {
+    float: 'left',
+    width: '100px',
+    border: '1px solid gray',
+    backgroundColor: '#C9C9C9',
+    margin: '5px',
   }
 
-  render() {
-  	const filterStyle = {
-      float: 'left',
-      width: '100px',
-      border: '1px solid gray',
-      backgroundColor: '#C9C9C9',
-      margin: '5px'
-    }
-    // const afterFilter = {
-    // 	clear: 'left'
-    // }
-
-  	return (
-  	  <div>
-        <div style={filterStyle}>{this.props.cat}</div>
-        <br/>
-      </div>
-  	)
-  }
+  return (
+    <div>
+      <div style={filterStyle}>{category}</div>
+      <br />
+    </div>
+  )
 }
 
-export default FilterItem;
+export default FilterItem
+
+FilterItem.propTypes = {
+  category: PropTypes.instanceOf(String),
+}
+
+FilterItem.defaultProps = {
+  category: '',
+}
