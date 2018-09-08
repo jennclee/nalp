@@ -1,0 +1,432 @@
+{
+  "categories": [
+    { 
+      "slug": "afghan",
+      "name": "Afghan"
+    },
+    { 
+      "slug": "african",
+      "name": "African"
+    },
+    { 
+      "slug": "american_new",
+      "name": "American (New)"
+    },
+    { 
+      "slug": "american_traditional",
+      "name": "American (Traditional)"
+    },
+    { 
+      "slug": "arabian",
+      "name": "Arabian"
+    },
+    { 
+      "slug": "argentine",
+      "name": "Argentine"
+    },
+    { 
+      "slug": "armenian",
+      "name": "Armenian"
+    },
+    { 
+      "slug": "asian_fusion",
+      "name": "Asian Fusion"
+    },
+    { 
+      "slug": "australian",
+      "name": "Australian"
+    },
+    { 
+      "slug": "austrian",
+      "name": "Austrian"
+    },
+    { 
+      "slug": "bangladeshi",
+      "name": "Bangladeshi"
+    },
+    { 
+      "slug": "barbeque",
+      "name": "Barbeque"
+    },
+    { 
+      "slug": "basque",
+      "name": "Basque"
+    },
+    { 
+      "slug": "belgian",
+      "name": "Belgian"
+    },
+    { 
+      "slug": "brazilian",
+      "name": "Brazilian"
+    },
+    { 
+      "slug": "british",
+      "name": "British"
+    },
+    { 
+      "slug": "burgers",
+      "name": "Burgers"
+    },
+    { 
+      "slug": "burmese",
+      "name": "Burmese"
+    },
+    { 
+      "slug": "cajun_creole",
+      "name": "Cajun/Creole"
+    },
+    { 
+      "slug": "cambodian",
+      "name": "Cambodian"
+    },
+    { 
+      "slug": "caribbean",
+      "name": "Caribbean"
+    },
+    { 
+      "slug": "catalan",
+      "name": "Catalan"
+    },
+    { 
+      "slug": "cheesesteaks",
+      "name": "Cheesesteaks"
+    },
+    { 
+      "slug": "chicken_shop",
+      "name": "Chicken Shop"
+    },
+    { 
+      "slug": "chicken_wings",
+      "name": "Chicken Wings"
+    },
+    { 
+      "slug": "chinese",
+      "name": "Chinese"
+    },
+    { 
+      "slug": "comfort_food",
+      "name": "Comfort Food"
+    },
+    { 
+      "slug": "creperies",
+      "name": "Creperies"
+    },
+    { 
+      "slug": "cuban",
+      "name": "Cuban"
+    },
+    { 
+      "slug": "czech",
+      "name": "Czech"
+    },
+    { 
+      "slug": "delis",
+      "name": "Delis"
+    },
+    { 
+      "slug": "ethiopian",
+      "name": "Ethiopian"
+    },
+    { 
+      "slug": "fast_food",
+      "name": "Fast Food"
+    },
+    { 
+      "slug": "filipino",
+      "name": "Filipino"
+    },
+    { 
+      "slug": "fish_and_chips",
+      "name": "Fish & Chips"
+    },
+    { 
+      "slug": "fondue",
+      "name": "Fondue"
+    },
+    { 
+      "slug": "french",
+      "name": "French"
+    },
+    { 
+      "slug": "gastropubs",
+      "name": "Gastropubs"
+    },
+    { 
+      "slug": "german",
+      "name": "German"
+    },
+    { 
+      "slug": "gluten_free",
+      "name": "Gluten-Free"
+    },
+    { 
+      "slug": "greek",
+      "name": "Greek"
+    },
+    { 
+      "slug": "guamanian",
+      "name": "Guamanian"
+    },
+    { 
+      "slug": "halal",
+      "name": "Halal"
+    },
+    { 
+      "slug": "hawaiian",
+      "name": "Hawaiian"
+    },
+    { 
+      "slug": "himalayan_nepalese",
+      "name": "Himalayan/Nepalese"
+    },
+    { 
+      "slug": "honduran",
+      "name": "Honduran"
+    },
+    { 
+      "slug": "hong_kong_style_cafe",
+      "name": "Hong Kong Style Cafe"
+    },
+    { 
+      "slug": "hot_dogs",
+      "name": "Hot Dogs"
+    },
+    { 
+      "slug": "hot_pot",
+      "name": "Hot Pot"
+    },
+    { 
+      "slug": "hungarian",
+      "name": "Hungarian"
+    },
+    { 
+      "slug": "iberian",
+      "name": "Iberian"
+    },
+    { 
+      "slug": "indian",
+      "name": "Indian"
+    },
+    { 
+      "slug": "indonesian",
+      "name": "Indonesian"
+    },
+    { 
+      "slug": "irish",
+      "name": "Irish"
+    },
+    { 
+      "slug": "italian",
+      "name": "Italian"
+    },
+    { 
+      "slug": "japanese",
+      "name": "Japanese"
+    },
+    { 
+      "slug": "kebab",
+      "name": "Kebab"
+    },
+    { 
+      "slug": "korean",
+      "name": "Korean"
+    },
+    { 
+      "slug": "kosher",
+      "name": "Kosher"
+    },
+    { 
+      "slug": "laotian",
+      "name": "Laotian"
+    },
+    { 
+      "slug": "latin_american",
+      "name": "Latin American"
+    },
+    { 
+      "slug": "live_raw_food",
+      "name": "Live/Raw Food"
+    },
+    { 
+      "slug": "malaysian",
+      "name": "Malaysian"
+    },
+    { 
+      "slug": "mediterranean",
+      "name": "Mediterranean"
+    },
+    { 
+      "slug": "mexican",
+      "name": "Mexican"
+    },
+    { 
+      "slug": "middle_eastern",
+      "name": "Middle Eastern"
+    },
+    { 
+      "slug": "modern_european",
+      "name": "Modern European"
+    },
+    { 
+      "slug": "mongolian",
+      "name": "Mongolian"
+    },
+    { 
+      "slug": "moroccan",
+      "name": "Moroccan"
+    },
+    { 
+      "slug": "new_mexican_cuisine",
+      "name": "New Mexican Cuisine"
+    },
+    { 
+      "slug": "Nicaraguan",
+      "name": "Nicaraguan"
+    },
+    { 
+      "slug": "noodles",
+      "name": "Noodles"
+    },
+    { 
+      "slug": "pakistani",
+      "name": "Pakistani"
+    },
+    { 
+      "slug": "pan_asian",
+      "name": "Pan Asian"
+    },
+    { 
+      "slug": "persian_iranian",
+      "name": "Persian/Iranian"
+    },
+    { 
+      "slug": "peruvian",
+      "name": "Peruvian"
+    },
+    { 
+      "slug": "pizza",
+      "name": "Pizza"
+    },
+    { 
+      "slug": "polish",
+      "name": "Polish"
+    },
+    { 
+      "slug": "portuguese",
+      "name": "Portuguese"
+    },
+    { 
+      "slug": "poutineries",
+      "name": "Poutineries"
+    },
+    { 
+      "slug": "russian",
+      "name": "Russian"
+    },
+    { 
+      "slug": "salad",
+      "name": "Salad"
+    },
+    { 
+      "slug": "sandwiches",
+      "name": "Sandwiches"
+    },
+    { 
+      "slug": "scandinavian",
+      "name": "Scandinavian"
+    },
+    { 
+      "slug": "scottish",
+      "name": "Scottish"
+    },
+    { 
+      "slug": "seafood",
+      "name": "Seafood"
+    },
+    { 
+      "slug": "singaporean",
+      "name": "Singaporean"
+    },
+    { 
+      "slug": "slovakian",
+      "name": "Slovakian"
+    },
+    { 
+      "slug": "soul_food",
+      "name": "Soul Food"
+    },
+    { 
+      "slug": "soup",
+      "name": "Soup"
+    },
+    { 
+      "slug": "southern",
+      "name": "Southern"
+    },
+    { 
+      "slug": "spanish",
+      "name": "Spanish"
+    },
+    { 
+      "slug": "sri_lankan",
+      "name": "Sri Lankan"
+    },
+    { 
+      "slug": "steakhouses",
+      "name": "Steakhouses"
+    },
+    { 
+      "slug": "syrian",
+      "name": "Syrian"
+    },
+    { 
+      "slug": "taiwanese",
+      "name": "Taiwanese"
+    },
+    { 
+      "slug": "tapas_small_plates",
+      "name": "Tapas/Small Plates"
+    },
+    { 
+      "slug": "tex_mex",
+      "name": "Tex-Mex"
+    },
+    { 
+      "slug": "thai",
+      "name": "Thai"
+    },
+    { 
+      "slug": "turkish",
+      "name": "Turkish"
+    },
+    { 
+      "slug": "ukrainian",
+      "name": "Ukrainian"
+    },
+    { 
+      "slug": "uzbek",
+      "name": "Uzbek"
+    },
+    { 
+      "slug": "vegan",
+      "name": "Vegan"
+    },
+    { 
+      "slug": "vegetarian",
+      "name": "Vegetarian"
+    },
+    { 
+      "slug": "vietnamese",
+      "name": "Vietnamese"
+    },
+    { 
+      "slug": "waffles",
+      "name": "Waffles"
+    },
+    { 
+      "slug": "wraps",
+      "name": "Wraps"
+     }
+  ]
+}
