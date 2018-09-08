@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CategorySearch from './CategorySearch'
 
 const Location = ({
-  setLocation, locationSearch, showCategory, categorySearch,
+  setLocation, locationSearch,
 }) => {
   const handleChange = (event) => {
     setLocation(event.target.value)
@@ -20,8 +19,6 @@ const Location = ({
       <input id="location" type="text" onChange={handleChange} />
       <input type="submit" onClick={handleSubmit} value="Enter" />
       <br />
-      <br />
-      { showCategory ? <CategorySearch categorySearch={categorySearch} /> : null }
     </div>
   )
 }
@@ -31,6 +28,4 @@ export default Location
 Location.propTypes = {
   setLocation: PropTypes.func.isRequired,
   locationSearch: PropTypes.func.isRequired,
-  showCategory: PropTypes.bool.isRequired,
-  categorySearch: PropTypes.func.isRequired,
 }

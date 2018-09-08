@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 // import Filters from './components/Filters'
 import Location from './components/Location'
 import RestaurantList from './components/RestaurantList'
+import CategorySearch from './components/CategorySearch'
 
 const $ = require('jquery')
 
@@ -13,6 +14,8 @@ class App extends Component {
       restaurants: [],
       location: '',
       showCategory: false,
+      category: '',
+      categories: [],
     }
   }
 
@@ -39,7 +42,19 @@ class App extends Component {
     })
   }
 
-  categorySearch = (categories) => {
+  updateCategory = (category) => {
+    this.setState({ category })
+  }
+
+  addCategory = () => {
+    const { category } = this.state
+    let { categories } = this.state
+    categories = [...categories, category]
+    this.setState({ categories })
+  }
+
+  categorySearch = () => {
+    const { categories } = this.state
     $.ajax({
       method: 'GET',
       url: '/loc',
@@ -59,7 +74,7 @@ class App extends Component {
   }
 
   render() {
-    const { restaurants, showCategory } = this.state
+    const { restaurants, showCategory, categories } = this.state
     return (
       <div>
         <h1>Nelp</h1>
@@ -67,10 +82,17 @@ class App extends Component {
         <Location
           setLocation={this.setLocation}
           locationSearch={this.locationSearch}
-          showCategory={showCategory}
-          categorySearch={this.categorySearch}
         />
         <br />
+        { showCategory
+          ? (
+            <CategorySearch
+              updateCategory={this.updateCategory}
+              addCategory={this.addCategory}
+              categorySearch={this.categorySearch}
+              categories={categories}
+            />)
+          : null }
         <br />
         <br />
         <RestaurantList restList={restaurants} />

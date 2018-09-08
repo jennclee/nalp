@@ -1,64 +1,51 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Filters from './Filters.js'
+import PropTypes from 'prop-types'
+import Filters from './Filters'
 
-class CategorySearch extends React.Component {
-  constructor(props) {
-  	super(props)
-  	this.state = {
-      category: '',
-      categories: [],
-      render: false
-  	}
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.applyCategories = this.applyCategories.bind(this)
+const CategorySearch = ({
+  categorySearch, updateCategory, addCategory, categories,
+}) => {
+  const handleChange = (event) => {
+    updateCategory(event.target.value)
   }
-  
-  handleChange(event) {
-    this.setState({
-      category: event.target.value
-    })
-  }
-  
-  handleSubmit(event) {
-    this.state.categories.push(this.state.category)
-    this.setState({
-      render: true
-    })
+
+  const handleSubmit = (event) => {
+    addCategory()
     event.preventDefault()
   }
 
-  // on another submit button
-  applyCategories(event) {
-    this.props.catSearch(this.state.categories)
-    // this.setState({
-    //   categories: []
-    // })
+  const applyCategories = (event) => {
+    categorySearch(categories)
     event.preventDefault()
   }
 
-  render() {
-    const divStyle = {
-      display: 'inline'
-    }
-  	return (
-  		<div>
-        <h5>Category:</h5>
-        <form>
-  			  <input id="catSearch" type="text" value={this.state.text} onChange={this.handleChange}/>
-  			  <button type="submit" onClick={this.handleSubmit}>Add Category</button>
-        </form>
-        <br/>
-        <div style={divStyle}>
-          { this.state.render ? <Filters cat={this.state.categories} /> : null }
-        </div>
-        <br/>
-        <button type="submit" onClick={this.applyCategories}>Apply Category Filters</button>
-        <br/>
-  		</div>
-  	)
-  }
+  return (
+    <div>
+      <h5>Category:</h5>
+      <form>
+        <input id="catSearch" type="text" onChange={handleChange} />
+        <button type="submit" onClick={handleSubmit}>Add Category</button>
+      </form>
+      <br />
+      <div>
+        <Filters categories={categories} />
+      </div>
+      <br />
+      <button type="submit" onClick={applyCategories}>Apply Category Filters</button>
+      <br />
+    </div>
+  )
 }
 
-export default CategorySearch;
+export default CategorySearch
+
+CategorySearch.propTypes = {
+  categorySearch: PropTypes.func.isRequired,
+  updateCategory: PropTypes.func.isRequired,
+  addCategory: PropTypes.func.isRequired,
+  categories: PropTypes.instanceOf(Array),
+}
+
+CategorySearch.defaultProps = {
+  categories: [],
+}
