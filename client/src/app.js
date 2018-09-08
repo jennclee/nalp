@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 // import Filters from './components/Filters'
 import Location from './components/Location'
-import RestaurantList from './components/RestaurantList'
-import CategorySearch from './components/CategorySearch'
+import ResultsContainer from './containers/ResultsContainer'
+import CategoryContainer from './containers/CategoryContainer'
 import { Header } from './styled/Header'
 import { Main } from './styled/Containers'
 
@@ -15,9 +15,9 @@ class App extends Component {
     this.state = {
       restaurants: [],
       location: '',
-      showCategory: false,
       category: '',
       categories: [],
+      view: 'location',
     }
   }
 
@@ -26,8 +26,8 @@ class App extends Component {
   }
 
   locationSearch = () => {
-    const { location, showCategory } = this.state
-    this.setState({ showCategory: !showCategory })
+    const { location } = this.state
+    this.setState({ view: 'category' })
     console.log('location entered: ', location)
     $.ajax({
       method: 'POST',
@@ -57,6 +57,7 @@ class App extends Component {
 
   categorySearch = () => {
     const { categories } = this.state
+    this.setState({ view: 'results' })
     $.ajax({
       method: 'GET',
       url: '/loc',
@@ -76,28 +77,31 @@ class App extends Component {
   }
 
   render() {
-    const { restaurants, showCategory, categories } = this.state
+    const { restaurants, categories, view } = this.state
     return (
       <div>
-        <Header>Nalp</Header>
+        <Header>APP HEADER</Header>
         <Main>
-          <Location
-            setLocation={this.setLocation}
-            locationSearch={this.locationSearch}
-          />
-          <br />
-          { showCategory
+          { view === 'location'
             ? (
-              <CategorySearch
+              <Location
+                setLocation={this.setLocation}
+                locationSearch={this.locationSearch}
+              />)
+            : null }
+          { view === 'category'
+            ? (
+              <CategoryContainer
                 updateCategory={this.updateCategory}
                 addCategory={this.addCategory}
                 categorySearch={this.categorySearch}
                 categories={categories}
               />)
             : null }
-          <br />
-          <br />
-          <RestaurantList restaurants={restaurants} />
+          { view === 'results'
+            ? (
+              <ResultsContainer restaurants={restaurants} />)
+            : null }
         </Main>
       </div>
     )

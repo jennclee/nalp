@@ -2,14 +2,15 @@ import styled from 'styled-components'
 
 const Button = styled.button`
   font-size: 1em;
-  color: black;
+  color: white;
   padding: 0.2em;
-  background-color: #AFC5FF;
+  background-color: #344CAD;
   border-radius: 5px;
+  border: none;
 `
 
 const SubmitButton = styled(Button)`
-  background-color: #638DFF;
+  background-color: #26387F;
 `
 
 export { Button, SubmitButton }

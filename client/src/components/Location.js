@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { SubmitButton } from '../styled/Buttons'
+import { SubPage } from '../styled/Containers'
+import { SubHeader } from '../styled/Header'
 
 const Location = ({
   setLocation, locationSearch,
@@ -15,12 +17,11 @@ const Location = ({
   }
 
   return (
-    <div>
-      <h5>Location:</h5>
+    <SubPage>
+      <SubHeader>Welcome! Enter a location to search for restaurants</SubHeader>
       <input id="location" type="text" onChange={handleChange} />
       <SubmitButton type="submit" onClick={handleSubmit}>Enter</SubmitButton>
-      <br />
-    </div>
+    </SubPage>
   )
 }
 
