@@ -43,6 +43,8 @@ db.connect((err) => {
 
 const saveRestaurant = 'REPLACE INTO restaurants (name, address, yelp_link, image_url, popularity, rating, price) VALUES (?)'
 
+const saveRestaurantCategory = 'REPLACE INTO restaurant_categories (restaurant_id, category_id) VALUES (?)'
+
 module.exports.save = (restaurants) => {
   restaurants.forEach((restaurant) => {
     const restaurantInfo = [
@@ -52,36 +54,26 @@ module.exports.save = (restaurants) => {
       restaurant.image_url,
       1,
       restaurant.rating,
-      restaurant.price
+      restaurant.price,
     ]
-    db.query(saveRestaurant, [restaurantInfo], (err, results) => {
-      console.log("************************")
-      console.log(results)
-      // (restaurant) => {
-      //   r_id = restaurant.id
-      //   if ( category.length === 1 ) {
-      //     c_id = category[0].dataValues.id
-      //     Restaurant_Category.create({
-      //       restaurant_id: r_id,
-      //       category_id: c_id
-      //     }).then((rest_cat) => {
-      //       rest_cat.save()
-      //     })
-      //   } else if ( category.length > 1 ) {
-      //     category.forEach((category) => {
-      //       c_id = category.dataValues.id
-      //       Restaurant_Category.create({
-      //         restaurant_id: r_id,
-      //         category_id: c_id
-      //       }).then((rest_cat) => {
-      //         rest_cat.save()
-      //       })
-      //     })
-      //   }
-      // })
+    db.query(saveRestaurant, [restaurantInfo], (err) => {
+      if (err) return `Error saving restaurant ${err}`
+      db.query(`SELECT * FROM restaurants WHERE name = '${restaurant.name}'`, (err, restaurantResults) => {
+        restaurant.categories.forEach((category, index) => (
+          db.query(`SELECT * FROM categories WHERE name = '${restaurant.categories[index].title}'`, (err, categoryResults) => {
+            db.query(saveRestaurantCategory, [restaurantResults[0].id, categoryResults[0].id])
+          })
+        ))
+      })
     })
   })
 }
+
+module.exports.find = (table, column, param) => new Promise((resolve) => {
+  resolve(
+    db.query(`SELECT * FROM ${table} WHERE ${column} = ${param}`)
+  )
+})
 
 module.exports.retrieve = categories => new Promise((resolve) => {
   resolve(
